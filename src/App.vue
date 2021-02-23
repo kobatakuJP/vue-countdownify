@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Countdownify msg="フェスティバル開始" :goalTime="'2021-2-23 15:45:00'" @its-time="a"/>
+    <Countdownify msg="フェスティバル開始" :goalTime="Date.now() + 10000" @its-time="a"/>
   </div>
 </template>
 
@@ -21,12 +21,13 @@ export default {
 </script>
 
 <style>
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  height: 100%;
 }
 </style>
