@@ -48,34 +48,27 @@ export default {
       return Math.max(this.goal.diff(this.now), 0);
     },
     detail: function () {
-      return dayjs
+      const D = this.goal.diff(this.now, "d")
+      return `${D}${dayjs
         .duration(this.diff)
-        .format("D[日] HH : mm : ss", { trim: false, trunc: true });
+        .format("[日] HH : mm : ss", { trim: false, trunc: true })}`;
     },
     strong: function () {
+      let a = "d"
       if (this.diff >= 1000 * 60 * 60 * 24) {
         // 1日以上なら日付を強調
-        return `${dayjs
-          .duration(this.diff)
-          .format("D", { trim: false, trunc: true })}`;
+        a = "d";
       } else if (this.diff >= 1000 * 60 * 60) {
         // 1時間以上なら時間を強調
-        return `${dayjs
-          .duration(this.diff)
-          .format("h", { trim: false, trunc: true })}`;
+        a = "h"
       } else if (this.diff >= 1000 * 60) {
         // 1分以上なら分を強調
-        return `${dayjs
-          .duration(this.diff)
-          .format("m", { trim: false, trunc: true })}`;
+        a = "m"
       } else if (this.diff >= 0) {
         // 0秒以上なら秒を強調
-        return `${dayjs
-          .duration(this.diff)
-          .format("s", { trim: false, trunc: true })}`;
+        a = "s"
       }
-      // 異常値なら0としておく
-      return "0";
+      return `${this.goal.diff(this.now, a)}`;
     },
     unit: function () {
       if (this.diff >= 1000 * 60 * 60 * 24) {
@@ -114,10 +107,10 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 #head {
   color: white;
-  text-align: center;
   font-size: 1.5rem;
 }
 #strong-area {
