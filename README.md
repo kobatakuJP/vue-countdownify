@@ -1,4 +1,4 @@
-# countdownify
+# Countdownify
 
 ## Project setup
 ```

@@ -1,17 +1,21 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Countdownify msg="フェスティバル開始" :goalTime="'2021-2-23 15:45:00'" @its-time="a"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Countdownify from './components/Countdownify.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Countdownify
+  },
+  methods: {
+    a(a) {
+      alert(a)
+    }
   }
 }
 </script>

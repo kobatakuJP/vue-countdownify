@@ -1,14 +1,31 @@
 {
   "name": "countdownify",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "main": "dist/countdownify.common.js",
+  "unpkg": "./dist/countdownify.umd.min.js",
+  "jsdelivr": "./dist/countdownify.umd.min.js",
+  "license": "MIT",
+  "author": "kobatakuJP",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "Vue",
+    "Vue.js",
+    "countdown",
+    "time"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build-bundle": "vue-cli-service build --target lib --name countdownify ./src/library-main.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "dayjs": "^1.10.4",
+    "dseg": "^0.46.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {
