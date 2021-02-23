@@ -117,6 +117,7 @@ export default {
 }
 #head {
   color: white;
+  text-align: center;
   font-size: 1.5rem;
 }
 #strong-area {
