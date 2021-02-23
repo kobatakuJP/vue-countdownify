@@ -2,7 +2,7 @@
   <div id="wrap">
     <div>
       <div id="head">
-        {{ msg ? msg : "終了" }}<span class="normal">まで</span>
+        {{ msg }}<span class="normal">まで</span>
       </div>
       <div id="strong-area">
         <span class="dgtl strong">{{ strong }}</span>
@@ -21,7 +21,7 @@ dayjs.extend(duration);
 export default {
   name: "Countdownify",
   props: {
-    msg: String,
+    msg: { type: String, default: "終了" },
     goalTime: { type: [String, Number, Array, Object], required: true },
   },
   data() {
