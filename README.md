@@ -2,6 +2,9 @@
 
 設定した日時までカウントダウンするコンポーネントです。
 
+![countdownify-demo](https://user-images.githubusercontent.com/36495393/108831666-c8c5f100-760d-11eb-8719-08a592149abf.gif)
+-remote://wsl%2Bubuntu-18.04/home/koba/workspace/src/countdownify/countdownify.gif)
+
 ## Install
 
 ### npm
