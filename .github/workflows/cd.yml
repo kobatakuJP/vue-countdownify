@@ -30,6 +30,4 @@ jobs:
       - name: Build
         run: npm run build-bundle
       - name: deploy
-        run: |
-          -npm publish
-          if [ $? = 0 ]; then echo "Published!!"; else  echo "No published."; fi
+        run: npm publish || true
