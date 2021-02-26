@@ -34,7 +34,8 @@ export default {
   methods: {
     tick() {
       this.now = dayjs();
-      this.timeoutID = setTimeout(this.tick, 100);
+      const nextTick = this.goal.diff(this.now) <= 10000 ? 100 : 16; // 残り10秒切ったら細かくやる
+      this.timeoutID = setTimeout(this.tick, nextTick);
     },
     untick() {
       clearTimeout(this.timeoutID);
@@ -64,9 +65,15 @@ export default {
       } else if (this.diff >= 1000 * 60) {
         // 1分以上なら分を強調
         a = "m"
-      } else if (this.diff >= 0) {
-        // 0秒以上なら秒を強調
+      } else if (this.diff >= 1000 * 10) {
+        // 10秒以上なら秒を強調
         a = "s"
+      } else if (this.diff >= 100) {
+        // 10秒未満は小数点表示
+        return (this.goal.diff(this.now) / 1000).toFixed(1);
+      } else {
+        // それ以外はゼロ表示にする
+        return 0;
       }
       return `${this.goal.diff(this.now, a)}`;
     },
