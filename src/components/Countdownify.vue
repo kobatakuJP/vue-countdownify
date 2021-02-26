@@ -55,19 +55,19 @@ export default {
         .format("[日] HH : mm : ss", { trim: false, trunc: true })}`;
     },
     strong: function () {
-      let a = "d"
+      let unit = "d"
       if (this.diff >= 1000 * 60 * 60 * 24) {
         // 1日以上なら日付を強調
-        a = "d";
+        unit = "d";
       } else if (this.diff >= 1000 * 60 * 60) {
         // 1時間以上なら時間を強調
-        a = "h"
+        unit = "h"
       } else if (this.diff >= 1000 * 60) {
         // 1分以上なら分を強調
-        a = "m"
+        unit = "m"
       } else if (this.diff >= 1000 * 10) {
         // 10秒以上なら秒を強調
-        a = "s"
+        unit = "s"
       } else if (this.diff >= 100) {
         // 10秒未満は小数点表示
         return (this.goal.diff(this.now) / 1000).toFixed(1);
@@ -75,7 +75,7 @@ export default {
         // それ以外はゼロ表示にする
         return 0;
       }
-      return `${this.goal.diff(this.now, a)}`;
+      return `${this.goal.diff(this.now, unit)}`;
     },
     unit: function () {
       if (this.diff >= 1000 * 60 * 60 * 24) {
