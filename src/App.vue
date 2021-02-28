@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Countdownify msg="フェスティバル開始" :goalTime="Date.now() + 10000" @its-time="a"/>
+    <Countdownify msg="フェスティバル開始" :goalTime="Date.now() + 12000" @its-time="a"/>
   </div>
 </template>
 
