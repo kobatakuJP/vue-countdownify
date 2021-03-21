@@ -30,7 +30,7 @@ jobs:
         run: npm run build-bundle
       - name: deploy
         run: |
-          echo $NODE_AUTH_TOKEN
+          echo ${#NODE_AUTH_TOKEN}
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
