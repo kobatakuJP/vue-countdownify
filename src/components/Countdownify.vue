@@ -118,13 +118,13 @@ export default {
 }
 #head {
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.5em;
 }
 #strong-area {
   margin: 3em;
 }
 .normal {
-  font-size: 1rem;
+  font-size: 0.75em;
 }
 .strong {
   font-size: 10em;
