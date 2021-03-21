@@ -1,6 +1,6 @@
 {
   "name": "vue-countdownify",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "private": false,
   "main": "dist/vue-countdownify.common.js",
   "unpkg": "./dist/vue-countdownify.umd.min.js",
