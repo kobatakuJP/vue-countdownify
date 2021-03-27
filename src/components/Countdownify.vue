@@ -1,9 +1,7 @@
 <template>
-  <div id="wrap">
+  <div id="wrap" :style="wrapStyle">
     <div>
-      <div id="head">
-        {{ msg }}<span class="normal">まで</span>
-      </div>
+      <div id="head">{{ msg }}<span class="normal">まで</span></div>
       <div id="strong-area">
         <span class="dgtl strong">{{ strong }}</span>
         <span class="dgtl unit">{{ unit }}</span>
@@ -23,6 +21,7 @@ export default {
   props: {
     msg: { type: String, default: "終了" },
     goalTime: { type: [String, Number, Array, Object], required: true },
+    backgroundColor: { type: String, default: "black" },
   },
   data() {
     return {
@@ -49,25 +48,25 @@ export default {
       return Math.max(this.goal.diff(this.now), 0);
     },
     detail: function () {
-      const D = this.goal.diff(this.now, "d")
+      const D = this.goal.diff(this.now, "d");
       return `${D}${dayjs
         .duration(this.diff)
         .format("[日] HH : mm : ss", { trim: false, trunc: true })}`;
     },
     strong: function () {
-      let unit = "d"
+      let unit = "d";
       if (this.diff >= 1000 * 60 * 60 * 24) {
         // 1日以上なら日付を強調
         unit = "d";
       } else if (this.diff >= 1000 * 60 * 60) {
         // 1時間以上なら時間を強調
-        unit = "h"
+        unit = "h";
       } else if (this.diff >= 1000 * 60) {
         // 1分以上なら分を強調
-        unit = "m"
+        unit = "m";
       } else if (this.diff >= 1000 * 10) {
         // 10秒以上なら秒を強調
-        unit = "s"
+        unit = "s";
       } else if (this.diff >= 100) {
         // 10秒未満は小数点表示
         return (this.goal.diff(this.now) / 1000).toFixed(1);
@@ -94,6 +93,11 @@ export default {
       // 異常値ならとりあえずなにもなし
       return ``;
     },
+    wrapStyle: function () {
+      return {
+        backgroundColor: this.backgroundColor ? this.backgroundColor : "black",
+      };
+    },
   },
   watch: {
     now: function () {
@@ -108,7 +112,6 @@ export default {
 
 <style scoped>
 #wrap {
-  background-color: black;
   width: 100%;
   height: 100%;
   display: flex;

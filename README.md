@@ -27,6 +27,7 @@ import 'vue-countdownify/dist/vue-countdownify.css'
 |:--|:--|:--|:--|:--|
 |msg|String|false|"終了"|ヘッダに表示される文字列。「{{msg}}まで」と表示される。|
 |goal-time|String|true|-|カウントダウンする先の時刻。[dayjs](https://day.js.org/en/)のコンストラクタに引数として渡すことができる形式で入力。<br>例：<br>`goal-time="2021-04-04T16:00:00.000Z"`<br>`:goal-time="[2021, 5, 4]`|
+|backgroundColor|String|false|"black"|背景色。[color書式](https://developer.mozilla.org/ja/docs/Web/CSS/color_value)に則ります。<br>例：`:background-color="red"`|
 
 ### Event
 
